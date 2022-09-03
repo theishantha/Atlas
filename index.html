@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Play with Header on Page Transitions</title>
+  <link href="https://fonts.googleapis.com/css?family=Trocchi|Anton" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+  <div :class="['bg', bg]">
+    <header>
+      <nav>
+        <ul>
+          <li><a class="link-bio" href="#bio" @click="bg = 'bio'">Atlas</a></li>
+          <li><a class="link-projects" href="#projects" @click="bg = 'projects'">Real Estate</a></li>
+          <li><a class="link-find-me" href="#findme" @click="bg = 'find-me'">Group</a></li>
+        </ul>
+      </nav>
+      <div class="transition transition-bio"></div>
+      <div class="transition transition-projects"></div>
+      <div class="transition transition-find-me"></div>
+      <h1>ATLAS</h1>
+    </header>
+    <div class="dots dots1"></div>
+    <div class="dots dots2"></div>
+    <main>
+      <transition name="slide-fade" mode="out-in">
+        <center><p key="bio" v-if="bg==='bio'"><a href="https://www.facebook.com/atlasrealestategroup" target="_blank">Atlas Real Estate Group</a><br>Colombo based Real Estate Firm </p>
+        <p key="projects" v-if="bg==='projects'">Drop a email: <a href="mailto:udara@atlasrealestategroup.org">udara@atlasrealestategroup.org</a></p>
+        <p key="find-me" v-if="bg==='find-me'">Contact Us: <a href="tel:+94776775259" target="_blank">+94 77 677 5259</a></p>
+      </transition>
+    </main>
+  </div>
+</div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.11/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
